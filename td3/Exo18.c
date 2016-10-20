@@ -2,14 +2,19 @@
 #include <stdlib.h>
 #include <time.h>
 
-struct Tableau{
+struct Tableau{ //taille 404
 	int taille;
 	int tab[100];
 };
 
 typedef struct Tableau tableau;
 
-tableau rand_int(){
+int alea(int n){
+
+	return rand()%n;
+}
+
+tableau rand_init(){
 	tableau T;
 	T.taille = 10;
 	int i;
@@ -21,23 +26,44 @@ tableau rand_int(){
 }
 	
 	
-int alea(int n){
+
+
+void affiche(tableau T){
 	
-	return rand()%n;
+	int i = 0;
+	for(i=0;i<10;i++){
+	
+	printf("%d \n", T.tab[i]);
+	}
+	
 }
 
-void main(){
+int produit(tableau T){
+	
+	int res = 1;
+	int i = 0;
+	
+	for(i=0;i<T.taille;i++){
+		
+		res *= T.tab[i];
+		}
+	return res;
+}
+
+
+
+int main(){
 
 int taille;
+srand(time(NULL));
 
 taille = sizeof(tableau);
-printf("%d \n", taille);
+printf("Taille structure tableau = %d \n", taille);
 
 
-int a,b;
-srand(time(NULL));
-scanf("a = %d", &a);
-b = alea(a);
-printf("%d \n", b);
-	
+tableau T;
+T = rand_init();
+affiche(T);
+printf("produit = %d \n", produit(T));
 }
+	
