@@ -1,9 +1,13 @@
 all: main
 	./main
-main: main.o graphics.o
-	gcc -Wall -o main main.o graphics.o
-main.o: main.c graphics.h
+main: main.o graphics.o liste.o simul.o
+	gcc -Wall -o main main.o graphics.o simul.o liste.o `sdl-config --libs` -lSDL_ttf -lm
+main.o: main.c graphics.h liste.h simul.h
 	gcc -c -Wall main.c
+liste.o: liste.c liste.h graphics.h
+	gcc -c -Wall liste.c
+simul.o: simul.c simul.h graphics.h
+	gcc -c -Wall simul.c
 	
 #construit le fichier binaire graphics.o
 graphics.o: graphics.c graphics.h

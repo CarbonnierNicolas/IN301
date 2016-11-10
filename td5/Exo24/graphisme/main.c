@@ -1,9 +1,11 @@
 #include "graphics.h"
+#include "simul.h"
+#include "liste.h"
 
 // ############################
 // 1. Les structures de données
 // ############################
-
+/*
 #define LARGEUR    800
 #define HAUTEUR    800
 #define COUL_FOND  noir
@@ -16,11 +18,11 @@ struct element{
 };
 typedef struct element *Liste;
 
-
+*/
 // ############################
 // 2. Fonctions listes chainees
 // ############################
-
+/*
 
 Liste ajoutDebut(Liste l, POINT p){
   Liste tmp = malloc(sizeof(struct element));
@@ -54,11 +56,11 @@ void dessineListe(Liste l){
   dessineListeRec(l);
   affiche_all();
 }
-
+*/
 // ############################
 // 3. Simulation
 // ############################
-
+/*
 
 void simulChaine(){
   Liste l = NULL;
@@ -80,7 +82,7 @@ void simulChaine(){
 }
 
 
-
+*/
 
 // ##########
 // 4. Le main
@@ -99,4 +101,5 @@ int main(){
 
   wait_escape();
   return 0;
+
 }
