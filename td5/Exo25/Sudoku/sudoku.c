@@ -121,7 +121,12 @@ SUDOKU modifier_sudoku_action (SUDOKU S, ACTION A) {
 
 
 // Le main
-int main(){
+int main(int argc, char **argv){
+	if(argc<=1){
+		lire("sudoku.sudo", &S);}
+	else{
+		lire(argv[1], &S);
+		}
 	SUDOKU S;
 	ACTION A;
 	initialiser_affichage();
