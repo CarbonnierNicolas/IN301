@@ -1,3 +1,5 @@
-void lire_fichier(SUDOKU S)
+#include "sudoku.h"
 
-void ecrire_fichier(SUDOKU S)
+SUDOKU lire_fichier(SUDOKU S);
+
+void ecrire_fichier(SUDOKU S);

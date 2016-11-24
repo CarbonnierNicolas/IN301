@@ -9,7 +9,7 @@
 #include "sudoku.h"
 #include "action.h"
 #include "affichage.h"
-#include "lire_ecrire.h"
+#include "lire_ecrire.c"
 
 // Initialise le sudoku à vide
 SUDOKU initialiser_sudoku (){
@@ -26,7 +26,7 @@ SUDOKU initialiser_sudoku (){
 
 
 // Fonction qui calcule la solution du sudoku
-SUDOKU resoudre_sudoku(SUDOKU S) {
+SUDOKU resoudre_sudoku(SUDOKU S){
 	// A FINIR
 	return S;
 }
@@ -52,7 +52,7 @@ int test_colone(int x, int y, int val, SUDOKU S)
 	
 	for(i=0; i<N; i++)
 	{
-		if(i!=y && S.la_case[x][i].val == val)
+		if(i!=y && S.la_case[i][x].val == val)
 		{
 			return 0;
 		}
@@ -121,12 +121,14 @@ SUDOKU modifier_sudoku_action (SUDOKU S, ACTION A) {
 
 
 // Le main
-int main() {
+int main(){
 	SUDOKU S;
 	ACTION A;
 	initialiser_affichage();
 	S = initialiser_sudoku();
+	S = lire_fichier(S);
 	afficher_sudoku(S);
+	
 	do {
 		A = recuperer_action();
 		S = modifier_sudoku_action(S,A);
@@ -134,5 +136,5 @@ int main() {
 		ecrire_fichier(S);
 	} while (mode_action(A) != QUITTER);
 	exit (0);
-	
+
 }
